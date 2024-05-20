@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selected menu</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>메뉴번호</th>
+            <th>메뉴이름</th>
+            <th>메뉴가격</th>
+            <th>카테고리코드</th>
+            <th>판매상태</th>
+        </tr>
+        <tr>
+            <td th:text="${coffee.menuCode}"></td>
+            <td th:text="${ coffee.menuName }"></td>
+            <td th:text="${ coffee.menuPrice }"></td>
+            <td th:text="${ coffee.categoryCode }"></td>
+            <td th:text="${ coffee.orderableStatus }"></td>
+        </tr>
+    </table>
+</body>
+</html>
