@@ -18,5 +18,5 @@ public class Category {
 
     private String categoryName;
 
-    private Integer refCategory;
+    private Integer refCategoryCode;
 }
