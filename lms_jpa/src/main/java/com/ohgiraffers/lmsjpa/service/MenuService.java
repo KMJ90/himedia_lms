@@ -87,4 +87,19 @@ public class MenuService {
         menuRepository.save(modelMapper.map(menuDTO, Menu.class));
 
     }
+
+    @Transactional
+    public void modifyService(MenuDTO menuDTO) {
+        Menu found = menuRepository
+                .findById(menuDTO.getMenuCode())
+                .orElseThrow(IllegalAccessError::new);
+        found.modifyMenuName(menuDTO.getMenuName());
+    }
+
+    @Transactional
+    public void removeService(Integer menuCode) {
+
+        menuRepository.deleteById(menuCode);
+
+    }
 }

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/coffee")
@@ -77,7 +79,29 @@ public class MenuController {
 
         menuService.registMenu(newMenu);
 
-        return "redirect:/menu/list";
+        return "redirect:/coffee/list";
+    }
+
+    @GetMapping("/modify")
+    public String modifyPage() {
+        return "/menu/modify";
+    }
+
+    @PostMapping("/modify")
+    public String modifyMenuPage(@ModelAttribute MenuDTO menuDTO) {
+        menuService.modifyService(menuDTO);
+        return "redirect:/coffee/list";
+    }
+
+    @GetMapping("/remove")
+    public String removePage() {
+        return "/menu/delete";
+    }
+
+    @PostMapping("/remove")
+    public String removeMenuPage(@RequestParam Integer menuCode) {
+        menuService.removeService(menuCode);
+        return "redirect:/coffee/remove";
     }
 
 }
